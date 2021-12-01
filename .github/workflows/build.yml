@@ -19,8 +19,9 @@ jobs:
               sudo ./build.sh \
                 --distribution kali-last-snapshot \
                 --version 2021.4 \
-                --arch amd64
-              ls
+                --arch amd64 \
+                --verbose
+              ls images
       - name: Publish Release
         uses: softprops/action-gh-release@v1
         with:
