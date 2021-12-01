@@ -21,9 +21,10 @@ jobs:
                 --distribution kali-last-snapshot \
                 --version 2021.4 \
                 --arch amd64
+              ls  
       - name: Publish Release
         uses: softprops/action-gh-release@v1
         with:
           name: ${{ steps.vars.outputs.tag }}
           draft: false
-          files: *.iso
+          files: kali.iso
