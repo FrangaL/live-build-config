@@ -13,7 +13,7 @@ jobs:
         run: |
               sudo apt-get update
               sudo apt-get install -y xz-utils git live-build simple-cdd cdebootstrap curl debootstrap make jetring
-              sudo bash <(wget -qO- https://git.io/kali-archive-keyring.sh)
+              sudo bash <(wget -qO- https://git.io/kali-archive-keyring.bash)
               wget https://http.kali.org/kali/pool/main/l/live-build/live-build_20210902kali1_all.deb
               sudo dpkg -i *.deb
               sudo ./build.sh \
