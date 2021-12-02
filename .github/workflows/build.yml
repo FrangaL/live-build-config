@@ -26,6 +26,7 @@ jobs:
                 --distribution kali-rolling \
                 --version $kali_version \
                 --arch amd64 \
+                --installer \
                 --verbose
               sudo xz -T $(nproc) images/kali-linux-$kali_version-live-amd64.iso
       - name: Publish Release
