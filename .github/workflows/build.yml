@@ -13,8 +13,13 @@ jobs:
         run: |
               sudo apt-get update
               sudo apt-get install -y xz-utils git live-build simple-cdd cdebootstrap curl debootstrap make jetring
-              sudo bash <(wget -qO- https://git.io/kali-archive-keyring.bash)
-              wget https://http.kali.org/kali/pool/main/l/live-build/live-build_20210902kali1_all.deb
+              keyring_url="http://http.kali.org/pool/main/k/kali-archive-keyring/"
+              keyring_file=$(curl -s -k $keyring_url | grep -oe "kali*.*all.deb" | sed -e 's/.*">//')
+              wget -nv "$keyring_url/$keyring_file"
+              sudo dpkg -i "$keyring_file"
+              livebuild_url="https://http.kali.org/kali/pool/main/l/live-build/"
+              livebuild_file=$(curl -s -k $livebuild_url | grep -oe "live*.*all.deb" | sed -e 's/.*">//')
+              wget -nv "$livebuild_url/$livebuild_file"
               sudo dpkg -i *.deb
               sudo ./build.sh \
                 --distribution kali-rolling \
