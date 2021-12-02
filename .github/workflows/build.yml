@@ -20,7 +20,7 @@ jobs:
               livebuild_file=$(curl -s -k $livebuild_url | grep -oe "live-build*.*all.deb" | sed -e 's/.*">//' | head -1)
               wget -nv "$livebuild_url/$livebuild_file"
               simplecdd_url="https://http.kali.org/kali/pool/main/s/simple-cdd/"
-              simplecdd_file=$(curl -s -k $simplecdd_url | grep -oe "simple-cdd*.*all.deb" | sed -e 's/.*">//' | head -1)
+              simplecdd_file=$(curl -s -k $simplecdd_url | grep -oe "simple-cdd*.*all.deb" | sed -e 's/.*">//' | sort -r | head -1)
               wget -nv "$simplecdd_url/$simplecdd_file"
               sudo dpkg -i "$keyring_file" "$livebuild_file" "$simplecdd_file"
               release_url="https://gitlab.com/kalilinux/packages/base-files/-/raw/kali/master/etc/os-release"
