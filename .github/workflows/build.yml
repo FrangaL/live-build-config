@@ -30,7 +30,7 @@ jobs:
                 --version $kali_version \
                 --arch i386 \
                 --verbose
-              sudo xz -T $(nproc) images/kali-linux-$kali_version-live-amd64.iso
+              sudo xz -T $(nproc) images/kali-linux-$kali_version-live-i386.iso
       - name: Publish Release
         uses: softprops/action-gh-release@v1
         with:
