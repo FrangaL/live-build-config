@@ -36,4 +36,4 @@ jobs:
         with:
           name: ${{ steps.vars.outputs.tag }}
           draft: false
-          files: images/kali-linux-$kali_version-live-i386.iso.xz
+          files: images/kali-linux-*
